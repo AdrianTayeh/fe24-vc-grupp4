@@ -1,0 +1,18 @@
+
+/* background-color for widgets, input fields */
+
+:root {
+  --widget-background-color: rgb(60, 61, 63);
+}
+
+
+
+
+
+/* background-color for the whole page */
+
+:root {
+    --main-background-color: rgb(35, 35, 35);
+  }
+  
+  
