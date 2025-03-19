@@ -5,6 +5,9 @@
     --main-background-color-light:rgb(235, 235, 235);
     --widget-background-color-dark-mobile: rgb(139, 141, 143);
     --widget-background-color-light-mobile: rgb(255, 255, 255);
+    --border-radius: 25px;
+    --border-radius-mobile: 15px;
+    
 }
 
 
