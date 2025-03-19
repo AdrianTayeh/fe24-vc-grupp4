@@ -1,19 +1,8 @@
-/* background-color for widgets, input fields */
 .widget {
     --widget-background-color: rgb(60, 61, 63);
 }
 
-
-
-
-/* background-color for the whole page */
 body {
     --main-background-color-dark: rgb(35, 35, 35);
-}
-
-
-
-
-body {
     --main-background-color-light:rgb(235, 235, 235);
 }
