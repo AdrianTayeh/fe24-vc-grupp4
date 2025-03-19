@@ -7,7 +7,8 @@
     --widget-background-color-light-mobile: rgb(255, 255, 255);
     --border-radius: 25px;
     --border-radius-mobile: 15px;
-    
+    --searchbar-border-radius: 1rem;
+    --searchbar-border-radius-mobile: 0.5rem;
 }
 
 
