@@ -2,6 +2,10 @@
     --widget-background-color: rgb(60, 61, 63);
 }
 
+.widget-mobile{
+    --widget-background-color: rgb(139, 141, 143);
+}
+
 body {
     --main-background-color-dark: rgb(35, 35, 35);
     --main-background-color-light:rgb(235, 235, 235);
