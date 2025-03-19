@@ -1,8 +1,27 @@
-.widget {
-    --widget-background-color: rgb(60, 61, 63);
-}
-
-body {
+:root {
+    --widget-background-color-dark: rgb(60, 61, 63);
+    --widget-background-color-light: rgb(255, 255, 255);
     --main-background-color-dark: rgb(35, 35, 35);
     --main-background-color-light:rgb(235, 235, 235);
+    --widget-background-color-dark-mobile: rgb(139, 141, 143);
+    --widget-background-color-light-mobile: rgb(255, 255, 255);
+}
+
+
+@media (prefers-color-scheme: light) {
+    .widget {
+        background-color: var(--widget-background-color-light);
+    }
+    body {
+        background-color: var(--main-background-color-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .widget {
+        background-color: var(--widget-background-color-dark);
+    }
+    body {
+        background-color: var(--main-background-color-dark);
+    }
 }
