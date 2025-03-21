@@ -56,7 +56,7 @@
     align-items: center; 
     justify-content: space-between; 
     gap: 5px;
-    padding: 10px;
+    
   }
 
   #home-div-mobile {
@@ -65,7 +65,7 @@
     align-items: center; 
     justify-content: start; 
     gap: 5px;
-    padding: 10px;
+    
   }
 
 
@@ -96,6 +96,8 @@
 #home-div-mobile {
   display: none;
 }
+
+
 
 /* LAYOUT HOME */
 body {
@@ -256,6 +258,63 @@ body {
   flex-direction: column;
 }
 
+
+/* About Us */
+
+#about-us-wrapper {
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+#about-us {
+  flex: 1 1 50%;
+  max-width: 50%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#about-us h1 {
+  text-align: center;
+}
+
+#about-us-img {
+  flex: 1 1 50%;
+  max-width: 50%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+#about-us-img img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#about-us-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  #about-us-wrapper {
+    flex-direction: column;
+  }
+
+  #about-us,
+  #about-us-img {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+}
 
 
 /* DARK MODE SWITCH */
