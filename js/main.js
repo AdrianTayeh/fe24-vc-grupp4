@@ -49,6 +49,10 @@ const todaysForecast = document.querySelector('#todays-forecast');
 
 searchCityForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const prevEl = document.querySelector('.forecast-div');
+    if(prevEl){
+    prevEl.remove();
+    }
     const formData = new FormData(searchCityForm);
     const cityName = formData.get('city-name');
     const currentData = await weatherFetchCurrent(cityName);
