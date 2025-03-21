@@ -1,0 +1,11 @@
+#Pollen:  https://api.ambeedata.com/latest/pollen/by-place?place={cityname};
+
+
+#Open Weather Map: https://maps.openweathermap.org/maps/2.0/weather/1h/{op}/{z}/{x}/{y}?appid={API key}
+#Open Weather Map data: https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={your_api_key}
+
+
+
+{op} == layer;
+{z} == zoomlevel;
+{x, y} == coords;
