@@ -71,13 +71,27 @@ forecastDiv.classList.add('forecast-div');
 for (let i = 0; i < 6; i++) {
     const forecastTime = forecast.list[i].dt_txt.slice(11, 16);
     const forecastTemp = forecast.list[i].main.temp;
+    const forecastWeatherIcon = forecast.list[i].weather[0].icon;
+    console.log(forecastWeatherIcon)
+    const iconURL = `http://openweathermap.org/img/wn/${forecastWeatherIcon}@2x.png`;
+
+
+    
+
+
+
     console.log(forecastTime, forecastTemp);
     const dayForecast = document.createElement('div');
 dayForecast.classList.add('day-forecast');
+
+
 dayForecast.innerHTML = `
 <p>${forecastTime}</p>
 <p>${forecastTemp}°C</p>
 `;
+const icon = document.createElement('img');
+icon.src = iconURL;
+dayForecast.append(icon);
 forecastDiv.append(dayForecast);
 }
 
