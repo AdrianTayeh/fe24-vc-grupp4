@@ -1,5 +1,5 @@
 
-export async function fetchPollenData(cityName) {
+/*export async function fetchPollenData(cityName) {
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const targetUrl = `https://api.ambeedata.com/latest/pollen/by-place?place=${cityName}`;
     const url = proxyUrl + targetUrl;
@@ -23,7 +23,7 @@ export async function fetchPollenData(cityName) {
   
     const data = await response.json();
     return data;
-  }
+  }*/
 
   
 
@@ -31,7 +31,7 @@ export async function fetchPollenData(cityName) {
 // weatherData
 
 export async function weatherFetch(city){
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7ff2d54809cb5400fea929d83f975141`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=2a51ff00bfeed2436069b3aa319e2bb3`;
     const response = await fetch(url);
     const data = await response.json();
     return data; 
@@ -43,7 +43,7 @@ export async function weatherFetch(city){
 
 
 export async function mapFetch(long, lat){
-    const url = `https://maps.openweathermap.org/maps/2.0/weather/1h/{op}/1/${lat}/${long}?appid=7ff2d54809cb5400fea929d83f975141`;
+    const url = `https://maps.openweathermap.org/maps/2.0/weather/1h/{op}/1/${lat}/${long}?appid=2a51ff00bfeed2436069b3aa319e2bb3`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data);
