@@ -49,6 +49,13 @@
     padding-left: 0 !important;
     min-height: 30%;
   }
+.forecast-div-7-days{
+  width: 100%;
+}
+  .week-day-div{
+    width: 100%;
+    background-color: #183153;
+  }
 
   #home-div {
     display: flex;
@@ -86,6 +93,7 @@
     width: 100% !important;
     height: auto;
     margin: 0;
+    
   }
 
   footer {
@@ -230,6 +238,32 @@ body {
   margin-top: 3%;
   text-align: center;
   flex-grow: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.forecast-div{
+  margin-top: 10%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  height: 20%;
+  align-items: center;
+
+}
+
+/* needs styling @LEON */
+
+/* .day-forecast{
+
+} */
+
+.temp-div{
+  padding: 10px;
+  border-right-style: solid;
+  height: 100px;
+
 }
 
 #pollen-data {
