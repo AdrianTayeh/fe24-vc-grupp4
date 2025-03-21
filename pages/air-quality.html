@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/jwt8hpw.css">
     <script src="../js/main.js" type="module"></script>
-    <script src="../js/airQuality.js" type="module"></script>
+    <script src="../js/air-quality.js" type="module"></script>
 </head>
 
 <body>
@@ -41,6 +41,14 @@
                     <span class="slider"></span>
                 </label>
             </div>
+            <select name="category" id="categorySelect">
+                <option value="pollen">
+                    Pollen
+                </option>
+                <option value="AQ">
+                    Air Quality
+                </option>
+            </select>
         </div>
 
 
@@ -48,6 +56,7 @@
         <div class="center-wrapper">
 
             <div id="search-cities" , class="widget">
+                
                 <form id="cities-form">
                     <input class="searchbar" type="text" placeholder="Search cities" name="city-name">
                 </form>
@@ -61,7 +70,7 @@
             </div>
             <div id="todays-forecast" class="widget">
                 <div class="pollen-info">
-                    
+
                 </div>
             </div>
         </div>
