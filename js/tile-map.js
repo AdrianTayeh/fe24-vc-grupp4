@@ -1,4 +1,4 @@
-import { weatherFetch } from "./api-fetches.js";
+import { weatherFetchCurrent } from "./api-fetches.js";
 
 const layer = "temp_new";
 const apiKey = "7ff2d54809cb5400fea929d83f975141";
@@ -52,7 +52,7 @@ async function addCityMarkers(map) {
             continue;
         }
 
-        const weatherData = await weatherFetch(capital);
+        const weatherData = await weatherFetchCurrent(capital);
 
 
         if (!weatherData || !weatherData.main || !weatherData.coord) {
