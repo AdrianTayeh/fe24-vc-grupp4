@@ -14,3 +14,22 @@ toggleSwitch.addEventListener('change', event => {
     const theme = event.target.checked ? 'dark' : 'light';
     setTheme(theme);
 });
+
+
+
+
+
+// fetch functionality
+
+
+import { fetchPollenData, weatherFetch, mapFetch } from "./api-fetches.js";
+
+const pRaw = await fetchPollenData('Malmo');
+const pollenData = pRaw.data[0];
+const data = await weatherFetch('Malmo');
+const long = data.coord.lon;
+const lat = data.coord.lat;
+
+
+const map = await mapFetch(long, lat);
+console.log(long, lat)
