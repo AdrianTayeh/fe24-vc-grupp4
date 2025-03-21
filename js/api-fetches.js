@@ -1,5 +1,5 @@
 
-/*export async function fetchPollenData(cityName) {
+export async function fetchPollenData(cityName) {
     const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     const targetUrl = `https://api.ambeedata.com/latest/pollen/by-place?place=${cityName}`;
     const url = proxyUrl + targetUrl;
@@ -23,7 +23,7 @@
   
     const data = await response.json();
     return data;
-  }*/
+  }
 
   
 
