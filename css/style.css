@@ -214,6 +214,26 @@
   /* .switch:hover */.sun svg {
     animation: rotate 15s linear infinite;
   }
+
+  .footer {
+    padding: 2%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-group{
+    display: flex;
+    flex-direction: row;
+  }
+
+.icon-group > div {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
   
   @keyframes rotate {
    
