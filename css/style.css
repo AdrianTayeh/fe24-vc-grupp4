@@ -101,7 +101,7 @@
   }
 
   .home {
-    font-size: 1.5rem;
+    font-size: 16px;
     margin: 0;
   }
 
@@ -131,6 +131,11 @@
     margin-top: var(--margin-y);
     margin-left: var(--margin-x);
     max-width: 5%;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
   }
 
   #home-icon > a {
@@ -174,6 +179,8 @@
     text-decoration: none;
     color: var(--font-color);
     margin-top: 15%;
+    display: flex;
+    flex-direction: column;
   }
   
   
