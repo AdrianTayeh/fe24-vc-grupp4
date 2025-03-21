@@ -7,16 +7,19 @@
     <title>Group-4 Weather/air-quality app</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/jwt8hpw.css">
+    <script src="./js/main.js" type="module"></script>
 </head>
 
 <body>
-
     <div id="container" class="container">
-
         <div id="sidebar" class="widget">
-            <div><label class="switch">
+            <div class="sidebar-item">
+                <h1 class="home"><a href="#">Home</a></h1>
+            </div>
+            <div class="sidebar-item">
+                <label class="switch">
                     <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <g fill="#ffd43b">
+                            <g fill="#ffc800">
                                 <circle r="5" cy="12" cx="12"></circle>
                                 <path
                                     d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z">
@@ -30,34 +33,42 @@
                         </svg></span>
                     <input type="checkbox" class="input">
                     <span class="slider"></span>
-                </label></div>
-            <div id="home-btn"></div>
-            <div id="maps-btn"></div>
-            <div id=""></div>
-            <div></div>
-
-            
+                </label>
+            </div>
+            <div class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="3.5rem" height="3.5rem" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/>
+                  </svg>
+                  <a href="weather.html">Weather</a>
+            </div>
+            <div class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="3.5rem" height="3.5rem" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/>
+                  </svg>
+                  <a href="air-quality.html">Air Quality</a>
+            </div>
+            <div class="sidebar-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="3.5rem" height="3.5rem" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                  </svg>
+                  <a href="about.html">About</a>
+            </div>
         </div>
-
         <div class="center-wrapper">
             <div id="search-cities", class="widget">
-                <form action="submit" id="cities-form">
-                    <input type="text" placeholder="Search cities">
+                <form id="cities-form">
+                    <input class="searchbar" type="text" placeholder="Search cities">
                 </form>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                  </svg>
+                </span>
             </div>
-            <div id="todays-forecast" class="todays-forecast, widget"></div>
-            <div id="pollen-data" class="pollen-data, widget"></div>
+            <div id="todays-forecast" class="widget"></div>
         </div>
-        
-        <div id="seven-day-forecast" class="seven-day-forecast, widget">
-                seven day forcast
-        </div>
-
+        <div id="seven-day-forecast" class="widget">7-day forecast</div>
     </div>
-
-
-
-
 </body>
-
 </html>
