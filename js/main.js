@@ -22,14 +22,18 @@ toggleSwitch.addEventListener('change', event => {
 // fetch functionality
 
 
-import { fetchPollenData, weatherFetch, mapFetch } from "./api-fetches.js";
+import { fetchPollenData, weatherFetch } from "./api-fetches.js";
+import { initializeMap } from "./tile-map.js";
 
-const pRaw = await fetchPollenData('Malmo');
-const pollenData = pRaw.data[0];
-const data = await weatherFetch('Malmo');
+// const pRaw = await fetchPollenData('Casablanca');
+// const pollenData = pRaw.data[0];
+const data = await weatherFetch('Casablanca');
+console.log(data);
 const long = data.coord.lon;
 const lat = data.coord.lat;
 
 
-const map = await mapFetch(long, lat);
-console.log(long, lat)
+const mapId = 'map';
+const coordinates = [lat, long];
+
+initializeMap(mapId, coordinates);

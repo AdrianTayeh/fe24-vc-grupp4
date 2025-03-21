@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/AdrianTayeh/fe24-vc-grupp4#readme",
   "dependencies": {
-    "bootstrap-icons": "^1.11.3"
+    "bootstrap-icons": "^1.11.3",
+    "leaflet": "^1.9.4"
   }
 }

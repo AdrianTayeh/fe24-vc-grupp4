@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="https://use.typekit.net/jwt8hpw.css">
     <script src="../js/main.js" type="module"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 
 <body>
@@ -41,6 +43,12 @@
                     <span class="slider"></span>
                 </label>
             </div>
+            <div class="sidebar-item">
+                <label>
+                    <input type="checkbox" id="cities-checkbox" />
+                    Show Cities
+                </label>
+            </div>
         </div>
 
         <div class="center-wrapper">
@@ -55,7 +63,9 @@
                   </svg>
                 </span>
             </div>
-            <div id="todays-forecast" class="widget"></div>
+            <div id="todays-forecast" class="widget">
+                <div id="map" style="height: 100%; width: 100%;"></div> 
+            </div>
         </div>
         <div id="seven-day-forecast" class="widget">7-day forecast</div>
     </div>
