@@ -64,35 +64,37 @@
                   </svg>
                 </span>
             </div>
-            <div id="todays-forecast" class="widget">
-                <div id="map" style="height: 100%; width: 100%;"></div> 
+            <div id="map-container" class="widget">
+                <div id="map"></div> 
             </div>
         </div>
-        <div id="map-layer-select" class="widget">
-            <p>Select a map layer:</p>
-            <form id="layer-form">
-                <label>
-                    <input type="radio" name="layer" value="temp_new" checked>
-                    Temperature
-                </label>
-                <label>
-                    <input type="radio" name="layer" value="precipitation_new">
-                    Precipitation
-                </label>
-                <label>
-                    <input type="radio" name="layer" value="wind_new">
-                    Wind
-                </label>
-                <label>
-                    <input type="radio" name="layer" value="clouds_new">
-                    Clouds
-                </label>
-                <label>
-                    <input type="radio" name="layer" value="pressure_new">
-                    Pressure
-                </label>
-            </form>
-        </div>
+        <form id="layer-form" class="custom-radio-group widget">
+            <label class="custom-radio-container">
+              <input type="radio" name="layer" value="temp_new" />
+              <span class="custom-radio-checkmark"></span>
+              Temperature
+            </label>
+            <label class="custom-radio-container">
+              <input type="radio" name="layer" value="clouds_new" />
+              <span class="custom-radio-checkmark"></span>
+              Clouds
+            </label>
+            <label class="custom-radio-container">
+              <input type="radio" name="layer" value="precipitation_new" />
+              <span class="custom-radio-checkmark"></span>
+              Precipitation
+            </label>
+            <label class="custom-radio-container">
+              <input type="radio" name="layer" value="pressure_new" />
+              <span class="custom-radio-checkmark"></span>
+              Pressure
+            </label>
+            <label class="custom-radio-container">
+              <input type="radio" name="layer" value="wind_new" />
+              <span class="custom-radio-checkmark"></span>
+              Wind
+            </label>
+        </form>
     </div>
     <footer>
         <div class="footer">

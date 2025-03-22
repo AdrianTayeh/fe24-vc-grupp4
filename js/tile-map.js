@@ -31,7 +31,7 @@ export async function initializeMap(mapId, coordinates) {
         if(currentLayer) {
             map.removeLayer(currentLayer);
         }
-        
+
         currentLayer = L.tileLayer(
         `https://tile.openweathermap.org/map/${selectedLayer}/{z}/{x}/{y}.png?appid=${apiKey}`,
         {
@@ -65,10 +65,8 @@ export async function initializeMap(mapId, coordinates) {
 
 async function addCityMarkers(map) {
     const bounds = map.getBounds();
-    console.log("Bounding Box:", bounds);
 
     const allCountries = await fetchAllCountries();
-    console.log("All Countries:", allCountries);
 
     const cityMarkers = L.layerGroup();
 
@@ -128,7 +126,6 @@ async function fetchAllCountries() {
         const response = await fetch(url);
 
         if (!response.ok) {
-            console.error("Error fetching countries:", response.status, response.statusText);
             return [];
         }
 
