@@ -18,19 +18,29 @@ searchCityForm.addEventListener('submit', async (event) => {
     const cityName = formData.get('city-name');
  console.log(categoryGlob)
     console.log(cityName)
-    if(categoryGlob === 'pollen'){
+    if(categoryGlob == 'pollen'){
         displayPollenInfo(cityName);
     }
 });
 
 async function displayPollenInfo(cName) {
     const pollenInfoDiv = document.querySelector('.pollen-info');
-    const pollenData = await fetchPollenData(cName)
-    console.log(pollenData);
+    const capitalizedName = cName.charAt(0).toUpperCase() + cName.slice(1);
+    const pollenData = await fetchPollenData(cName);
+    console.log(pollenData.data[0]);
+    
+    const allergens = pollenData.data[0].Risk;
+
+    const allergensList = Object.entries(allergens).map(([allergen, level]) => 
+        `<li>${allergen.replace('_', ' ')}: ${level}</li>`
+    ).join('');
+
+   
     pollenInfoDiv.innerHTML = `
-    <h2>Pollen data for ${cityName}</h2>
-    <p>Main Allergens:</p> `
+    <h2>Pollen data for ${capitalizedName}</h2>
+    <ul>${allergensList}</ul>`;
 }
+
 
 
 
