@@ -15,6 +15,33 @@ export async function initializeMap(mapId, coordinates) {
     maxZoom: 18,
   }).addTo(map);
 
+  let currentLayer = L.tileLayer(
+    `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`,
+    {
+        attribution:
+            '&copy; <a href="https://openweathermap.org/">OpenWeatherMap</a>',
+        maxZoom: 18,
+    }
+  ).addTo(map);
+
+  const layerForm = document.querySelector("#layer-form");
+    layerForm.addEventListener("change", (event) => {
+        const selectedLayer = event.target.value;
+
+        if(currentLayer) {
+            map.removeLayer(currentLayer);
+        }
+        
+        currentLayer = L.tileLayer(
+        `https://tile.openweathermap.org/map/${selectedLayer}/{z}/{x}/{y}.png?appid=${apiKey}`,
+        {
+            attribution:
+            '&copy; <a href="https://openweathermap.org/">OpenWeatherMap</a>',
+            maxZoom: 18,
+        }
+        ).addTo(map);
+    });
+
   L.tileLayer(
     `https://tile.openweathermap.org/map/${layer}/{z}/{x}/{y}.png?appid=${apiKey}`,
     {
@@ -124,3 +151,14 @@ function getTemperatureColor(temp) {
     const b = Math.min(255, Math.max(0, Math.round(255 * (1 - normalizedTemp))));
     return `rgb(${r},${g},${b})`;
 }
+
+const searchCityForm = document.querySelector('#cities-form');
+searchCityForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const formData = new FormData(searchCityForm);
+    const cityName = formData.get('city-name');
+    const currentWeather = await weatherFetchCurrent(cityName);
+    const { lat, lon } = currentWeather.coord;
+    const mapId = "map";
+    initializeMap(mapId, [lat, lon]);
+});

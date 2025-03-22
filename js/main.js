@@ -24,8 +24,8 @@ import { weatherFetchCurrent } from "./api-fetches.js";
 import { initializeMap } from "./tile-map.js";
 
 const currentWeather = await weatherFetchCurrent("London");
-const { lat, lon } = currentWeather.coord;
-const mapId = "map";
-initializeMap(mapId, [lat, lon]);
+// const { lat, lon } = currentWeather.coord;
+// const mapId = "map";
+// initializeMap(mapId, [lat, lon]);
 
 

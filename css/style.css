@@ -107,7 +107,20 @@
   display: none;
 }
 
+#map-layer-select {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 30%;
+    align-items: center;
+    padding-top: 3%;
+}
 
+#map-layer-select > form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
 /* LAYOUT HOME */
 body {
