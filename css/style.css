@@ -270,6 +270,7 @@ body {
   align-items: center;
   border-radius: 12px;
   justify-content: center;
+  margin-bottom: 3%;
 }
 
 #search-cities form {
@@ -638,3 +639,79 @@ body {
 .input:checked+.slider:before {
   transform: translateX(30px);
 }
+
+.switchPollenAQ {
+    --button-width: 3.5em;
+    --button-height: 2em;
+    --toggle-diameter: 1.5em;
+    --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
+    --toggle-shadow-offset: 10px;
+    --toggle-wider: 3em;
+    --color-grey: #cccccc;
+    --color-green: #4296f4;
+   }
+   
+   .sliderPollen {
+    display: inline-block;
+    width: var(--button-width);
+    height: var(--button-height);
+    background-color: var(--color-grey);
+    border-radius: calc(var(--button-height) / 2);
+    position: relative;
+    transition: 0.3s all ease-in-out;
+   }
+   
+   .sliderPollen::after {
+    content: "";
+    display: inline-block;
+    width: var(--toggle-diameter);
+    height: var(--toggle-diameter);
+    background-color: #fff;
+    border-radius: calc(var(--toggle-diameter) / 2);
+    position: absolute;
+    top: var(--button-toggle-offset);
+    transform: translateX(var(--button-toggle-offset));
+    box-shadow: var(--toggle-shadow-offset) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+    transition: 0.3s all ease-in-out;
+   }
+   
+   .switchPollenAQ input[type="checkbox"]:checked + .sliderPollen {
+    background-color: var(--color-green);
+   }
+   
+   .switchPollenAQ input[type="checkbox"]:checked + .sliderPollen::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-diameter) - var(--button-toggle-offset)));
+    box-shadow: calc(var(--toggle-shadow-offset) * -1) 0 calc(var(--toggle-shadow-offset) * 4) rgba(0, 0, 0, 0.1);
+   }
+   
+   .switchPollenAQ input[type="checkbox"] {
+    display: none;
+   }
+   
+   .switchPollenAQ input[type="checkbox"]:active + .sliderPollen::after {
+    width: var(--toggle-wider);
+   }
+   
+   .switchPollenAQ input[type="checkbox"]:checked:active + .sliderPollen::after {
+    transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
+   }
+
+   .toggleContainer {
+    margin-bottom:-3%;
+    position: absolute;
+    top: 8.5%;
+    right: 24.5%;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 10;
+    
+   }
+
+   .toggleContainer > label {
+    display: flex;
+    align-items: center;
+   }
+   
+   #pollen-data-sidebar {
+    width: 30%;
+   }
