@@ -1,6 +1,5 @@
 import { weatherFetchCurrent } from "./api-fetches.js";
 
-const layer = "temp_new";
 const apiKey = "7ff2d54809cb5400fea929d83f975141";
 const zoomLevel = 7;
 const mapId = "map";
