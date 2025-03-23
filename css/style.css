@@ -91,6 +91,7 @@
     width: 100% !important;
     height: auto;
     margin: 0;
+   
     
   }
 
@@ -357,7 +358,7 @@ body {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .forecast-div{
@@ -378,7 +379,6 @@ body {
 
 .temp-div{
   padding: 10px;
-  border-right-style: solid;
   height: 100px;
 
 }
