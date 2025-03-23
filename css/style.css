@@ -358,7 +358,14 @@ body {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+
+.statusWWidget{
+  padding: 5%;
+  display: flex;
   justify-content: space-evenly;
+  border-radius: var(--border-radius);
 }
 
 .forecast-div{
@@ -399,17 +406,7 @@ body {
 
 
 
-.pollen-info{
-  margin-left: 10%;
-  display: flex;
-  flex-direction: column;
-  border-style: solid;
-  padding: 10px;
-  margin-top: 15%;
-  margin-bottom: 15%;
-  border-radius: var(--border-radius);
-  border-width: 0.75px;
-}
+
 
 
 .sidebar-item {
@@ -639,7 +636,7 @@ body {
     --toggle-wider: 3em;
     --color-grey: #cccccc;
     --color-green: #4296f4;
-   }
+}
    
    .sliderPollen {
     display: inline-block;
@@ -649,6 +646,7 @@ body {
     border-radius: calc(var(--button-height) / 2);
     position: relative;
     transition: 0.3s all ease-in-out;
+    margin-left: 0.5%;
    }
    
    .sliderPollen::after {
@@ -686,6 +684,11 @@ body {
     transform: translateX(calc(var(--button-width) - var(--toggle-wider) - var(--button-toggle-offset)));
    }
 
+   .switchPollenAQ p{
+    width: 100%;
+   }
+
+   
    .toggleContainer {
     margin-bottom:-3%;
     display: flex;
@@ -698,6 +701,7 @@ body {
    .toggleContainer > label {
     display: flex;
     align-items: center;
+  
    }
    
    #pollen-data-sidebar {
@@ -705,6 +709,14 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+   }
+
+   .pollutant-name{
+    border-top-style: solid;
+    border-top-width: 0.75px;
+    padding-top: 2%;
    }
 
    .forecast-div-7-days{

@@ -56,8 +56,13 @@ console.log(cityName[0].name);
   });
 
 async function displayPollenInfo(cName) {
+    const statusW = document.querySelector('.statusWWidget')
     const pollenInfoDiv = document.querySelector('.pollen-info');
     const pollenDetailsDiv = document.querySelector('#pollen-data-sidebar');
+    if(statusW){
+        statusW.innerHTML = '';
+        statusW.style.backgroundColor = 'transparent';
+    }
     const capitalizedName = cName.charAt(0).toUpperCase() + cName.slice(1);
     const pollenData = await fetchPollenData(cName);
     console.log(pollenData.data[0]);
@@ -100,14 +105,34 @@ async function displayPollenInfo(cName) {
 
 async function displayAirQuality(lat, lon, cityTitle) {
     const pollenInfoDiv = document.querySelector('.pollen-info');
+    const statusW = document.querySelector('.statusWWidget')
     const pollenDetailsDiv = document.querySelector('#pollen-data-sidebar');
-    
-    pollenInfoDiv.innerHTML = `<h2>Main pollutants in ${cityTitle}</h2>`;
-    pollenDetailsDiv.innerHTML = '<p>Main pollutants</p>';
-    
+    pollenDetailsDiv.innerHTML = '<h3>Main pollutants</h3>';
+    pollenInfoDiv.innerHTML = `
+    <h2>Air Quality data for ${cityTitle}</h2>`;
     const AQdata = await airQualityFetch(lat, lon);
     const mainPollutants = AQdata.list[0].components;
-
+    console.log(AQdata.list[0].main.aqi);
+    if (AQdata.list[0].main.aqi == 1) {
+        statusW.innerHTML = `<p class="good">Air quality is: Good</p>`;
+        statusW.style.backgroundColor = '#05fc0061';
+    } else if (AQdata.list[0].main.aqi == 2) {
+        statusW.innerHTML = `<p class="fair">Air quality is: Fair</p>`;              //     <====== eventuellt lite ikoner för dessa
+        statusW.style.backgroundColor = '#fcf80061';
+    } else if (AQdata.list[0].main.aqi == 3) {
+        statusW.innerHTML = `<p class="moderate">Air quality is: Moderate</p>`;
+        statusW.style.backgroundColor = '#fcb60061';
+    }
+    else if (AQdata.list[0].main.aqi == 4) {
+        statusW.innerHTML = `<p class="poor">Air quality is: Poor</p>`;
+        statusW.style.backgroundColor = '#d100008a';
+        statusW.style.color = 'white';
+    }
+    else if (AQdata.list[0].main.aqi == 5) {
+        statusW.innerHTML = `<p class="very-poor">Air quality is: Very Poor</p>`;
+        statusW.style.backgroundColor = '#d100008a';
+        statusW.style.color = 'white';
+    } 
     const pollutantFullNames = {
         co: "Carbon Monoxide",
         no: "Nitric Oxide",
@@ -123,17 +148,10 @@ async function displayAirQuality(lat, lon, cityTitle) {
         const fullName = pollutantFullNames[pollutant] || pollutant.charAt(0).toUpperCase() + pollutant.slice(1);
         const pollutantNameP = document.createElement('p');
         pollutantNameP.classList.add('pollutant-name');
-        pollutantNameP.innerHTML = fullName;
-        pollenInfoDiv.appendChild(pollutantNameP);
+        pollutantNameP.innerHTML = fullName + ': ' + mainPollutants[pollutant] + ' µg/m³';
+        pollenDetailsDiv.appendChild(pollutantNameP);
     }
 
-    for (const [pollutant, value] of Object.entries(mainPollutants)) {
-        const shortName = pollutant.charAt(0).toUpperCase() + pollutant.slice(1);
-        const pollutantP = document.createElement('p');
-        pollutantP.classList.add('pollutant');
-        pollutantP.innerHTML = `${shortName}: ${value}`;
-        pollenDetailsDiv.appendChild(pollutantP);
-    }
 }
 
 
