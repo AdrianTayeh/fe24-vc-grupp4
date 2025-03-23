@@ -357,7 +357,7 @@ body {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .forecast-div{
@@ -386,6 +386,7 @@ body {
 #pollen-data {
   width: 100%;
   text-align: center;
+
 }
 
 #seven-day-forecast {
@@ -393,6 +394,27 @@ body {
   padding-left: 2.5%;
   padding-top: 1%;
 }
+
+/* kan fan inte centrera texten i denna div */
+.pollen-details{
+  background-color: #183153;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.pollen-details li{
+  margin-top: 5px;
+  border-bottom-style:solid;
+  border-bottom-width: 0.75px;
+  list-style: none;
+  margin-right: auto;
+}
+
+.pollen-info{
+  margin-left: 10%;
+}
+
 
 .sidebar-item {
   display: flex;
