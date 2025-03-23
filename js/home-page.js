@@ -64,56 +64,59 @@ forecastDiv.append(dayForecast);
 
 //forecast 7 days
 
+function getDayFromDate(dateString) {
+  const date = new Date(dateString);
+  const options = { weekday: 'long' };  
+  return date.toLocaleDateString('en-US', options);
+}
+
 const forecast7Days = await weatherFetchForecast(cityName);
 const forecastList = forecast7Days.list;
 console.log(forecastList);
 
-
 function getDateFromTimestamp(timestamp) {
     const date = new Date(timestamp * 1000);
     return date.toISOString().split('T')[0]; 
-  }
-  
-  const dailyTemps = {};
-  
-  forecastList.forEach(forecast => {
+}
+
+const dailyTemps = {};
+
+forecastList.forEach(forecast => {
     const date = getDateFromTimestamp(forecast.dt);
     if (!dailyTemps[date]) {
-      dailyTemps[date] = { totalTemp: 0, count: 0 };
+        dailyTemps[date] = { totalTemp: 0, count: 0 };
     }
     
     dailyTemps[date].totalTemp += forecast.main.temp;
     dailyTemps[date].count++;
-  });
-  
-  const dailyAverages = Object.keys(dailyTemps).map(date => {
+});
+
+const dailyAverages = Object.keys(dailyTemps).map(date => {
     const dailyData = dailyTemps[date];
     const averageTemp = dailyData.totalTemp / dailyData.count;
     return { date, averageTemp };
-  });
-  
-  const sevenDayForecast = document.querySelector('#seven-day-forecast');
+});
+
+const sevenDayForecast = document.querySelector('#seven-day-forecast');
 const forecastDiv7Days = document.createElement('div');
 forecastDiv7Days.classList.add('forecast-div-7-days');
 sevenDayForecast.appendChild(forecastDiv7Days);
 
-
-  dailyAverages.forEach(day => {
+dailyAverages.forEach(day => {
     const weekDayDiv = document.createElement('div');
     weekDayDiv.classList.add('week-day-div');
-    weekDayDiv.innerHTML = `<p>${day.date}</p><p>${day.averageTemp.toFixed(2)}°C</p>`;
-    forecastDiv7Days.append(weekDayDiv)
-    console.log(`Date: ${day.date}, Average Temperature: ${day.averageTemp.toFixed(2)} °C`);
-  });
+    const weekdayName = getDayFromDate(day.date);
+    
+    weekDayDiv.innerHTML = `<p>${weekdayName}</p><p>${day.averageTemp.toFixed(2)}°C</p>`;
+    forecastDiv7Days.append(weekDayDiv);
+
+    console.log(`Day: ${weekdayName}, Average Temperature: ${day.averageTemp.toFixed(2)} °C`);
+});
 
 ////////////////////////////////////
-
-
 
 const currentTempDiv = document.createElement('div');
 currentTempDiv.classList.add('temp-div');
 currentTempDiv.innerHTML = `<p>Temperature: ${actualTemp}°C</p><p>Feels like: ${feelsLike}°C</p>`;
 todaysForecast.appendChild(forecastDiv, currentTempDiv);
 })
-
-
