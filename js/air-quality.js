@@ -42,7 +42,7 @@ searchCityForm.addEventListener('submit', async (event) => {
 
 async function displayPollenInfo(cName) {
     const pollenInfoDiv = document.querySelector('.pollen-info');
-    const pollenDetailsDiv = document.querySelector('.pollen-details');
+    const pollenDetailsDiv = document.querySelector('#pollen-data-sidebar');
     const capitalizedName = cName.charAt(0).toUpperCase() + cName.slice(1);
     const pollenData = await fetchPollenData(cName);
     console.log(pollenData.data[0]);
