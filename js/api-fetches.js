@@ -44,3 +44,11 @@ export async function getCityName(lat, lon) {
   const data = await response.json();
   return data;
 }
+
+export async function airQualityFetch(lat, lon) {
+  const API_KEY = "2a51ff00bfeed2436069b3aa319e2bb3";
+  const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
