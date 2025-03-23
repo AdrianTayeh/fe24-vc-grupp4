@@ -8,7 +8,6 @@ import {
 
 const sevenDayForecast = document.querySelector("#seven-day-forecast");
 
-
 function intitializeWeather() {
   navigator.geolocation.getCurrentPosition(async (position) => {
     const { latitude, longitude } = position.coords;
@@ -62,6 +61,24 @@ async function displayWeatherData(cityName) {
   const forecast7Days = await weatherFetchForecast(cityName);
   const forecastList = forecast7Days.list;
 
+  const forecast = await weatherFetchForecast(cityName);
+  for(let i = 0; i < 6; i++) {
+    const forecastTime = forecast.list[i].dt_txt.slice(11, 16);
+    const forecastTemp = forecast.list[i].main.temp;
+    const forecastIcon = forecast.list[i].weather[0].icon;
+    const iconURL = `http://openweathermap.org/img/wn/${forecastIcon}@2x.png`;
+
+    const dayForecast = document.createElement("div");
+    dayForecast.classList.add("day-forecast");
+    dayForecast.innerHTML = `
+        <p>${forecastTime}</p>
+        <p>${forecastTemp}°C</p>
+    `;
+    const icon = document.createElement("img");
+    icon.src = iconURL;
+    dayForecast.append(icon);
+    forecastDiv.append(dayForecast);
+  }
 
   function getDateFromTimestamp(timestamp) {
     const date = new Date(timestamp * 1000);
@@ -92,14 +109,14 @@ async function displayWeatherData(cityName) {
 
   const dailyForecasts = Object.keys(dailyTemps).map((date) => {
     const dailyData = dailyTemps[date];
-    return {date, ...dailyData};
-});
+    return { date, ...dailyData };
+  });
 
-const forecastDiv7Days = document.createElement("div");
-forecastDiv7Days.classList.add("forecast-div-7-days");
-sevenDayForecast.appendChild(forecastDiv7Days);
+  const forecastDiv7Days = document.createElement("div");
+  forecastDiv7Days.classList.add("forecast-div-7-days");
+  sevenDayForecast.appendChild(forecastDiv7Days);
 
-dailyForecasts.forEach((day, index) => {
+  dailyForecasts.forEach((day, index) => {
     const weekDayDiv = document.createElement("div");
     weekDayDiv.classList.add("week-day-div");
 
@@ -110,7 +127,7 @@ dailyForecasts.forEach((day, index) => {
     const progressEnd = Math.min(100, ((maxTemp + 20) / tempRange) * 100);
     const progressWidth = progressEnd - progressStart;
 
-    const weekDayName = index  === 0 ? "Today" : getDayFromDate(day.date);
+    const weekDayName = index === 0 ? "Today" : getDayFromDate(day.date);
     console.log(weekDayName);
     const iconURL = `http://openweathermap.org/img/wn/${day.icon}.png`;
 
@@ -125,7 +142,7 @@ dailyForecasts.forEach((day, index) => {
     `;
 
     forecastDiv7Days.appendChild(weekDayDiv);
-});
+  });
 }
 
 function getDayFromDate(dateString) {
