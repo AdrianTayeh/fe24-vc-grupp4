@@ -1,14 +1,12 @@
 
 import { fetchPollenData } from "./api-fetches.js";
 
-const categorySelect = document.querySelector('#categorySelect');
-let categoryGlob = categorySelect.value;
+const switchPollenAQ = document.querySelector('.switchPollenAQ input');
+let categoryGlob = switchPollenAQ.checked ? 'pollen' : 'air-quality';
 
-categorySelect.addEventListener('change', async (event) => {
-    categoryGlob = event.target.value;
-    //categoryGlob = [];
-    //categoryGlob.push(category)
-})
+switchPollenAQ.addEventListener('change', (event) => {
+    categoryGlob = event.target.checked ? 'pollen' : 'air-quality';
+});
 
 
 const searchCityForm = document.querySelector('#cities-form');
