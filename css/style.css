@@ -266,7 +266,6 @@ body {
   align-items: center;
   border-radius: 12px;
   justify-content: center;
-  margin-bottom: 3%;
 }
 
 #search-cities form {
@@ -564,6 +563,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 }
 
 
@@ -694,13 +694,11 @@ body {
 
    .toggleContainer {
     margin-bottom:-3%;
-    position: absolute;
-    top: 8.5%;
-    right: 24.5%;
     display: flex;
-    justify-content: flex-end;
-    z-index: 10;
-    
+    align-items: center;
+    margin-right: 2%;
+    margin-top: 1%;
+    margin-left: auto;
    }
 
    .toggleContainer > label {
