@@ -52,3 +52,11 @@ export async function airQualityFetch(lat, lon) {
   const data = await response.json();
   return data;
 }
+
+// export async function weatherFetchForecast(city) {
+//   const API_KEY = "5204ed86ca397d06531ddbd2efefb7b8";
+//   const url = ` api.openweathermap.org/data/2.5/forecast/daily?q=${city}&cnt=7&units=metric&appid=${API_KEY}`;
+//   const response = await fetch(url);
+//   const data = await response.json();
+//   return data;
+// }
