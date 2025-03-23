@@ -22,83 +22,158 @@
   --main-background-color: var(--main-background-color-dark);
 }
 
-/* Mobile */
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto; 
+    /* General container adjustments */
+    #container {
+      flex-direction: column; /* Stack elements vertically */
+      height: auto; /* Allow the height to adjust dynamically */
+      gap: 20px; /* Add spacing between stacked elements */
+    }
+  
+    /* Center wrapper adjustments */
+    .center-wrapper {
+      width: 100%; /* Full width for mobile */
+      padding: 10px; /* Add padding for spacing */
+    }
+  
+    /* Sidebar adjustments */
+    #sidebar {
+      display: none !important; /* Hide the sidebar on mobile */
+    }
+  
+    #home-div-mobile {
+      display: flex !important; /* Show the mobile home and dark mode toggle */
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      gap: 10px;
+    }
+  
+    /* Today's forecast adjustments */
+    #todays-forecast {
+      width: 100%; /* Full width for mobile */
+      margin: 0;
+      padding-bottom: 5%;
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .temp-div {
+      font-size: 1.2rem; /* Adjust font size for readability */
+    }
+  
+    /* Seven-day forecast adjustments */
+    #seven-day-forecast {
+      width: 100% !important; /* Full width for mobile */
+      margin: 0;
+      padding: 10px;
+    }
+  
+    .forecast-div-7-days {
+      width: 100%; /* Full width for mobile */
+      flex-direction: column; /* Stack forecast items vertically */
+      gap: 10px; /* Add spacing between forecast items */
+    }
+  
+    .week-day-div {
+      width: 100%; /* Full width for mobile */
+      height: auto; /* Adjust height dynamically */
+      padding: 10px;
+      margin-bottom: 10px;
+      flex-direction: column; /* Stack content vertically */
+      align-items: center;
+      text-align: center;
+    }
+  
+    .day-name {
+      font-size: 1rem; /* Adjust font size */
+      margin-bottom: 5px;
+    }
+  
+    .weather-icon {
+      width: 50px; /* Adjust icon size */
+      height: 50px;
+      margin-bottom: 5px;
+    }
+  
+    .temp-range {
+      display: flex;
+      flex-direction: column; /* Stack min and max temps vertically */
+      align-items: center;
+    }
+  
+    .min-temp,
+    .max-temp {
+      font-size: 0.9rem; /* Adjust font size */
+    }
+  
+    /* Search bar adjustments */
+    #search-cities {
+      width: 100%; /* Full width for mobile */
+      padding: 10px;
+    }
+  
+    #search-cities form {
+      display: flex;
+      flex-direction: row; /* Keep input and button in a row */
+      gap: 10px;
+    }
+  
+    .searchbar {
+      flex-grow: 1; /* Allow the input to take up available space */
+      font-size: 1rem; /* Adjust font size */
+    }
+  
+    .search-button {
+      font-size: 1rem; /* Adjust button size */
+    }
+  
+    /* Footer adjustments */
+    footer {
+      display: none; /* Hide the footer on mobile */
+    }
+
+    .forecast-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+        /* overflow-y: auto; */
+        height: 100%;
+        margin-bottom: 5%;
+    }
+
+    .day-forecast {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: var(--border-radius);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .day-forecast p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--font-color);
+    }
+
+    .day-forecast img {
+        width: 40px;
+        height: 40px;
+    }
   }
-
-  .center-wrapper {
-    width: 100%;
-  }
-
-  .widget {
-    width: 100% !important;
-    margin: 0;
-  }
-
-  #sidebar {
-    display: none !important;
-}
-
-  #seven-day-forecast {
-    width: 100% !important;
-    margin: 0;
-    padding-left: 0 !important;
-    min-height: 30%;
-  }
-.forecast-div-7-days{
-  width: 100%;
-}
-
-
-
-  #home-div {
-    display: flex;
-    flex-direction: row !important;
-    align-items: center; 
-    justify-content: space-between; 
-    gap: 5px;
-    
-  }
-
-  #home-div-mobile {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center; 
-    justify-content: start; 
-    gap: 5px;
-    
-  }
-
-
-  #home-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .sidebar-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #todays-forecast,
-  #pollen-data {
-    width: 100% !important;
-    height: auto;
-    margin: 0;
-   
-    
-  }
-
-  footer {
-    display: none;
-  }
-}
 
 #home-div-mobile {
   display: none;
