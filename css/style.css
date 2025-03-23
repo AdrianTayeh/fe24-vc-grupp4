@@ -358,7 +358,7 @@ body {
   flex-grow: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .forecast-div{
@@ -396,27 +396,19 @@ body {
   height: 97%;
 }
 
-/* kan fan inte centrera texten i denna div */
-.pollen-details{
-  background-color: rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-direction: column;
-  margin-left: auto;
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
 
-}
 
-.pollen-details li{
-  margin-top: 5px;
-  border-bottom-style:solid;
-  border-bottom-width: 0.75px;
-  list-style: none;
-  margin-right: auto;
-}
 
 .pollen-info{
   margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  padding: 10px;
+  margin-top: 15%;
+  margin-bottom: 15%;
+  border-radius: var(--border-radius);
+  border-width: 0.75px;
 }
 
 
