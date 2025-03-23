@@ -2,13 +2,24 @@
 // fetch functionality
 
 
-import { /*fetchPollenData,*/ weatherFetchCurrent, weatherFetchForecast } from "./api-fetches.js";
+import { /*fetchPollenData,*/ weatherFetchCurrent, weatherFetchForecast, getCityName } from "./api-fetches.js";
 
 
 
+function intiializeWeather(){
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const { latitude, longitude } = position.coords;
+      const cityName = await getCityName(latitude, longitude);
+      console.log(cityName[0].name);
+      const currentData = await weatherFetchCurrent(cityName[0].name);
+      console.log(currentData);
+      const forecast = await weatherFetchForecast(cityName[0].name);
+      console.log(forecast);
+    });
+}
 
-
-
+intiializeWeather();
 
 const searchCityForm = document.querySelector('#cities-form');
 const todaysForecast = document.querySelector('#todays-forecast');
