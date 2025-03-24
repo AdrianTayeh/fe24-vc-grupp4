@@ -39,7 +39,7 @@ export async function weatherFetchForecast(city) {
 // get City name from coordinates
 export async function getCityName(lat, lon) {
   const API_KEY = "2a51ff00bfeed2436069b3aa319e2bb3";
-  const url = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY}`;
+  const url = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=5&appid=${API_KEY}`;
   const response = await fetch(url);
   const data = await response.json();
   return data;
