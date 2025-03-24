@@ -340,12 +340,24 @@ body {
   flex-wrap: wrap;
   justify-content: center;
 }
+.upperDiv{
+  width: 100%;
+}
+
+
 
 .statusWWidget{
   padding: 5%;
   display: flex;
   justify-content: space-evenly;
-  border-radius: var(--border-radius);
+  border-radius: 15px;
+  flex-direction: column;
+  width: 30%;
+  height: 20%;
+  justify-content: center;
+  margin-left: 10%;
+  margin-top: 10%;
+align-items: baseline;
 }
 
 .forecast-div{
@@ -688,10 +700,12 @@ body {
     width: 30%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: baseline;
     padding: 10px;
     box-sizing: border-box;
-   }
+    justify-content: space-evenly;
+   } 
+   
 
    .pollutant-name{
     border-top-style: solid;
@@ -893,4 +907,4 @@ body {
         width: 40px;
         height: 40px;
     }
-  }
+   }
