@@ -121,7 +121,7 @@ async function addCityMarkers(map) {
 }
 async function fetchAllCountries() {
   const username = "adriantayeh";
-  const url = `https://api.geonames.org/countryInfoJSON?username=${username}`;
+  const url = `http://api.geonames.org/countryInfoJSON?username=${username}`;
 
   try {
     const response = await fetch(url);
