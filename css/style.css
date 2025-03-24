@@ -609,7 +609,7 @@ body {
 
 .switchPollenAQ {
     --button-width: 3.5em;
-    --button-height: 2em;
+    --button-height: 1em;
     --toggle-diameter: 1.5em;
     --button-toggle-offset: calc((var(--button-height) - var(--toggle-diameter)) / 2);
     --toggle-shadow-offset: 10px;
@@ -764,10 +764,15 @@ body {
       padding-bottom: 5%;
       padding: 10px;
       text-align: center;
+      height: auto;
     }
   
     .temp-div {
       font-size: 1.2rem; /* Adjust font size for readability */
+    }
+
+    #layer-form {
+        width: 100%;
     }
   
     /* Seven-day forecast adjustments */
@@ -788,7 +793,7 @@ body {
       height: auto; /* Adjust height dynamically */
       padding: 10px;
       margin-bottom: 10px;
-      flex-direction: column; /* Stack content vertically */
+      flex-direction: row;
       align-items: center;
       text-align: center;
     }
@@ -806,7 +811,7 @@ body {
   
     .temp-range {
       display: flex;
-      flex-direction: column; /* Stack min and max temps vertically */
+      flex-direction: row;
       align-items: center;
     }
   
@@ -841,6 +846,17 @@ body {
       display: none; /* Hide the footer on mobile */
     }
 
+    #pollen-data-sidebar {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .toggleContainer {
+        z-index: 10000;
+        margin-bottom: 5%;
+    }
+
     .forecast-div {
         display: flex;
         flex-direction: column;
@@ -851,6 +867,8 @@ body {
         /* overflow-y: auto; */
         height: 100%;
         margin-bottom: 5%;
+        justify-content: flex-start;
+        margin-top: 30%;
     }
 
     .day-forecast {
