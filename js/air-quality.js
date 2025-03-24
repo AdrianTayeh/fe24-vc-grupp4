@@ -79,15 +79,16 @@ async function displayPollenInfo(cName) {
             speciesList += `<h3>${category} Pollen:</h3><ul>`;
             if (typeof data === 'object') {
                 for (const [pollenType, percentage] of Object.entries(data)) {
-                    speciesList += `<li>${pollenType}: ${percentage}%</li>`;
+                    speciesList += `<li class="listItem">${pollenType}: ${percentage}%</li>`;
                 }
             } else {
 
-                speciesList += `<li>${category}: ${data}%</li>`;
+                speciesList += `<li class = "listItem">${category}: ${data}%</li>`;
             }
             speciesList += `</ul>`;
         }
-        speciesList.style.listStyleType = 'none';
+        
+        speciesList = `<ul>${speciesList}</ul>`;
         pollenDetailsDiv.innerHTML = `${speciesList}`;
     }else{
         console.log('No data found')
@@ -97,7 +98,7 @@ async function displayPollenInfo(cName) {
     const allergens = pollenData.data[0].Risk;
 
     const allergensList = Object.entries(allergens).map(([allergen, level]) => 
-        `<li>${allergen.replace('_', ' ')}: ${level}</li>`
+        `<li class="listItem">${allergen.replace('_', ' ')}: ${level}</li>`
     ).join('');
 
    

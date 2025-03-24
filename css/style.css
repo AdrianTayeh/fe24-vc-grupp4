@@ -713,6 +713,14 @@ align-items: baseline;
   
    }
    
+.listItem{
+  list-style: none;
+  border-top-style: solid;
+  border-top-width: 0.75px;
+  padding-top: 5%;
+  margin-top: 5%;
+}
+
    #pollen-data-sidebar {
     width: 30%;
     display: flex;
