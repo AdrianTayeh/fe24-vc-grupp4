@@ -28,3 +28,9 @@ const currentWeather = await weatherFetchCurrent("London");
 
 
 
+document.getElementById('hamburger').addEventListener('click', () => {
+    const navLinks = document.querySelector('.nav-links');
+    if (navLinks) {
+        navLinks.style.display = 'flex';
+    }
+});
