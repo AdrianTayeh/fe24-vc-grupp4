@@ -30,21 +30,21 @@ This app integrates several powerful APIs to provide accurate and real-time data
 
 ## Screenshots
 ### Home Page:
-![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.12.04.png)
+![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.23.png)
 ![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.13.31.png)
 
 ### Interactive Weather Map:
-![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.23.png)
+![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.39.png)
 ![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.14.00.png)
 
 ### Air Quality Page
-![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.39.png)
+![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.51.png)
 ![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.14.09.png)
 
 ### Pollen Data Page
-![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.03.01.png)
+![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.12.04.png)
 ![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.14.19.png)
 
 ### About Us Page
-![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.02.51.png)
+![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.03.01.png)
 ![](https://github.com/AdrianTayeh/fe24-vc-grupp4/blob/Gustafs/Screenshot%202025-03-24%20at%2020.14.29.png)
