@@ -12,7 +12,7 @@ switchPollenAQ.addEventListener('change', (event) => {
     intitializeData()
 });
 
-
+let cityNameGlob = ''
 function intitializeData(){
     navigator.geolocation.getCurrentPosition(
       async (position) => {
@@ -20,15 +20,21 @@ function intitializeData(){
         const cityName = await getCityName(latitude, longitude);
         console.log(cityName[0].name);
         const currentData = await weatherFetchCurrent(cityName[0].name);
-        console.log(currentData);
+    
         const windData = currentData.wind.speed;
         const forecast = await weatherFetchForecast(cityName[0].name);
         const cityNameIn  = forecast.city.name;
         
 if(categoryGlob == 'pollen'){
-        displayPollenInfo(cityNameIn);  
+    if(cityNameGlob !== ''){
+        displayPollenInfo(cityNameGlob);}
+        else{
+        displayPollenInfo(cityNameIn);  }
      }else{
-     displayAirQuality(latitude, longitude, cityName[0].name, windData);
+        if(cityNameGlob !== ''){
+            displayAirQuality(latitude, longitude, cityNameGlob, windData);}
+            else{
+     displayAirQuality(latitude, longitude, cityName[0].name, windData);}
 console.log(cityName[0].name);
     }
       return cityName;
@@ -42,13 +48,12 @@ console.log(cityName[0].name);
   searchCityForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const formData = new FormData(searchCityForm);
-      const searchCityName = formData.get('city-name'); 
-  
-      console.log(categoryGlob);
-      console.log(searchCityName);
-  
+      const searchCityName = formData.get('city-name');
+      cityNameGlob = searchCityName;
+
       if (categoryGlob === 'pollen') {
           displayPollenInfo(searchCityName);
+          console.log(searchCityName)
       } else {
           const rawC = await weatherFetchCurrent(searchCityName);
           const coords = rawC.coord;
@@ -92,6 +97,8 @@ async function displayPollenInfo(cName) {
         pollenDetailsDiv.innerHTML = `${speciesList}`;
     }else{
         console.log('No data found')
+        pollenDetailsDiv.innerHTML = '<h3>No detailed data found</h3>';
+        pollenInfoDiv.innerHTML = `<h2>No pollen data found for ${capitalizedName}</h2>`;
     }
 
 
@@ -182,4 +189,3 @@ async function displayAirQuality(lat, lon, cityTitle, wind) {
 
 
    
-
