@@ -29,7 +29,7 @@
 }
 
 .slider-show {
-    display: flex;
+    display: flex !important;
 }
 
 
