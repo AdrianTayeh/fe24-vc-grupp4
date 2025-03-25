@@ -28,6 +28,10 @@
     padding: 0;
 }
 
+.slider-show {
+    display: flex;
+}
+
 
 #home-div-mobile {
   display: none;
