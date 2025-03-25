@@ -8,61 +8,61 @@ let cityMarkersLayer;
 let map;
 
 export async function initializeMap(mapId) {
-    navigator.geolocation.getCurrentPosition(
-        async (position) => {
-            const { latitude, longitude } = position.coords;
-            console.log("User's location:", latitude, longitude);
+  navigator.geolocation.getCurrentPosition(
+    async (position) => {
+      const { latitude, longitude } = position.coords;
+      console.log("User's location:", latitude, longitude);
 
-            map = L.map(mapId).setView([latitude, longitude], zoomLevel);
+      map = L.map(mapId).setView([latitude, longitude], zoomLevel);
 
-            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-                attribution:
-                  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                maxZoom: 18,
-              }).addTo(map);
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        maxZoom: 18,
+      }).addTo(map);
 
-            let currentLayer = L.tileLayer(
-                `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}` ,
-                {
-                    attribution:
-                    '&copy; <a href="https://openweathermap.org">OpenWeatherMap</a>',
-                    maxZoom: 18,
-                }    
-            ).addTo(map);
-
-            const layerForm = document.querySelector("#layer-form");
-            layerForm.addEventListener("change", (event) => {
-                const selectedLayer = event.target.value;
-                if(currentLayer) {
-                    map.removeLayer(currentLayer);
-                }
-
-                currentLayer = L.tileLayer(
-                    `https://tile.openweathermap.org/map/${selectedLayer}/{z}/{x}/{y}.png?appid=${apiKey}`,
-                    {
-                        attribution:
-                        '&copy; <a href="https://openweathermap.org">OpenWeatherMap</a>',
-                        maxZoom: 18,
-                    }
-                ).addTo(map);
-            });
-
-            const citiesCheckbox = document.querySelector("#cities-checkbox");
-            citiesCheckbox.addEventListener("change", async (event) => {
-                if (event.target.checked) {
-                    cityMarkersLayer = await addCityMarkers(map);
-                } else {
-                    if (cityMarkersLayer) {
-                        map.removeLayer(cityMarkersLayer);
-                    }
-                }
-            });
-        },
-        (error) => {
-            console.error("Error getting user's location:", error);
-            alert("Unable to retrieve your location. Please allow location access.");
+      let currentLayer = L.tileLayer(
+        `https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`,
+        {
+          attribution:
+            '&copy; <a href="https://openweathermap.org">OpenWeatherMap</a>',
+          maxZoom: 18,
         }
-    );
+      ).addTo(map);
+
+      const layerForm = document.querySelector("#layer-form");
+      layerForm.addEventListener("change", (event) => {
+        const selectedLayer = event.target.value;
+        if (currentLayer) {
+          map.removeLayer(currentLayer);
+        }
+
+        currentLayer = L.tileLayer(
+          `https://tile.openweathermap.org/map/${selectedLayer}/{z}/{x}/{y}.png?appid=${apiKey}`,
+          {
+            attribution:
+              '&copy; <a href="https://openweathermap.org">OpenWeatherMap</a>',
+            maxZoom: 18,
+          }
+        ).addTo(map);
+      });
+
+      const citiesCheckbox = document.querySelector("#cities-checkbox");
+      citiesCheckbox.addEventListener("change", async (event) => {
+        if (event.target.checked) {
+          cityMarkersLayer = await addCityMarkers(map);
+        } else {
+          if (cityMarkersLayer) {
+            map.removeLayer(cityMarkersLayer);
+          }
+        }
+      });
+    },
+    (error) => {
+      console.error("Error getting user's location:", error);
+      alert("Unable to retrieve your location. Please allow location access.");
+    }
+  );
 }
 
 async function addCityMarkers(map) {
@@ -120,18 +120,18 @@ async function addCityMarkers(map) {
   return cityMarkers;
 }
 async function fetchAllCountries() {
-  const username = "adriantayeh";
-  const url = `https://api.geonames.org/countryInfoJSON?username=${username}`;
+  const url = "https://fe24-vc-backend-grupp4.onrender.com/api/countries";
 
   try {
     const response = await fetch(url);
 
     if (!response.ok) {
+      console.error("Failed to fetch countries from backend");
       return [];
     }
 
     const data = await response.json();
-    return data.geonames || [];
+    return data;
   } catch (error) {
     console.error("Network error while fetching countries:", error);
     return [];
